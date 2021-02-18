@@ -18,7 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser:true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
 
 
 // const databaseURL="workout-tracker";
@@ -29,11 +33,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts");
 //     console.log('Database Error:', error);
 //   });
 //Routes
-const routes = "./routes";
-app.use(require(routes));
+ require("./routes/api-routes")(app);
+ require("./routes/html-routes")(app);
 
-router.use(require("./routes/html-routes"));
-router.use(require("./routes/api-routes"));
+
  
   
 

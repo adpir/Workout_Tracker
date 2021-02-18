@@ -1,23 +1,19 @@
 const db = require("../models/");
-let path = require("path");
+const app = require("express").Router();
+const path = require("path");
 
 
-
-
-
-
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname,"../public/index.html"));
+app.get("/",  (req, res) => {
+    res.sendFile(path.join(__dirname, "..../public/index/html"));
 });
   app.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
   // stast route loads stast.html
   app.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/stats.html"));
+    res.sendFile(path.join(__dirname, "../stats.html"));
 
   });
   
-module.export =app;
+  module.exports=app;
   

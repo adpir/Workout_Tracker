@@ -1,47 +1,58 @@
-const db = require("./models");
-// const app = require("../server");
+const db = require("../models");
+const app = require("express").Router();
+const routes = require('./routes');
 
-
-app.get("/api/workouts", async (req,res) => {
-    const fitness = await db.workout.find({}).catch((err) => {
-        res.sendStatus(404).json(err)
-        console.log("find workouts")
-    });
-      res.json(fitness);
-    });
 
     app.get("/api/workouts", (req, res) => {
-        db.workout.find({})
-          .then(dbWorkout => {
-            res.json(dbWorkout);
-          })
-          .catch(err => {
-            res.json(err);
+        db.Workout.find({}, function (err, data) {
+          console.log(" find the book I read", err, data);
+          res.json(data);
+        })
+        .catch(err => {
+            res.status(400).json(err);
           });
       });
- 
 
+    app.put("/api/workouts/:id", (req, res) => {
+        const id  = req.params.id;
+        const body =req.body;
+        db.Workout.findByIdAndUpdate( id, {$push: {exercises : body }} ,
+        {new:true }
 
+        ).then((data) => {
+            res.json(data);
+          })
+          .catch(err => {
+            res.status(400).json(err);
+          });
+        });
+     
+        app.post("/api/workouts",  (req, res) => {
+             db.Workout.create({}), function (err, data) {
+                console.log(" find the book I read", err, data);
+                res.json(data);
+              }
+              .catch(err => {
+                res.status(400).json(err);
+              });
+            });
 
-  app.post("/api/workouts", (req, res) => {
-    console.log(req.body);
-  
-    db.workout.insert(req.body, (err, docs) => {
-      console.log("workout has been saved", err, docs);
-
-      res.json(docs);
+    app.post("api/workouts/range", (req, res) => {
+    db.Workout.find({}), function (err, data) {
+        console.log(" find the book I read", err, data);
+        res.json(data);
+      }
+      .catch(err => {
+        res.status(400).json(err);
+      });
     });
-  });
-
-app.put("/api/workouts/:id", (req,res) => {
-    console.log(req.body);
-})
 
 
 
 
 
-module.exports=app;
+
+module.exports= app;
 
 
 
