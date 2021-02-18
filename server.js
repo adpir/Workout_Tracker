@@ -1,9 +1,13 @@
 const express =require('express');
 const mongojs =require('mongojs');
 const logger = require("morgan");
+const mongoose = require("mongoose");
+const router = express.Router();
+
 
 const PORT = process.env.PORT || 3001;
 
+const db = require("./models");
 
 const app =express();
 
@@ -14,23 +18,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts");
 
 
-const databaseURL="workout-tracker";
-const collections =["workout"];
+// const databaseURL="workout-tracker";
+// const collections =["workout"];
 
-const db = mongojs(databaseURL, collections);
-db.on('error', (error) => {
-    console.log('Database Error:', error);
-  });
+// const db = mongojs(databaseURL, collections);
+// db.on('error', (error) => {
+//     console.log('Database Error:', error);
+//   });
+//Routes
+const routes = "./routes";
+app.use(require(routes));
 
-
-
-  //Routes
-
-  router.use("/", require("./routes/html-routes"));
-  router.use("/api/workouts", require("./routes/api-routes"));
+router.use(require("./routes/html-routes"));
+router.use(require("./routes/api-routes"));
  
   
 
