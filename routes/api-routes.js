@@ -1,8 +1,6 @@
 const db = require("../models");
-const app = require("express").Router();
-const routes = require('./routes');
 
-
+module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({}, function (err, data) {
           console.log(" find the book I read", err, data);
@@ -52,7 +50,7 @@ const routes = require('./routes');
 
 
 
-module.exports= app;
+};
 
 
 

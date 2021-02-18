@@ -18,6 +18,7 @@ const WorkoutSchema = new Schema({
         ref: "workout",
         trim: true
       }
+      
     ]
   });
   
