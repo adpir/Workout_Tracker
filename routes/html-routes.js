@@ -14,7 +14,7 @@ app.get("/",  (req, res) => {
 });
   // stast route loads stast.html
   app.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, "../stats.html"));
+    res.sendFile(path.join(__dirname, "../public/stats.html"));
 
   });
   

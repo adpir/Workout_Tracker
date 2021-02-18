@@ -8,47 +8,42 @@ const WorkoutSchema = new Schema({
       },
 
     name: {
-      type: Number,
+      type: String,
       unique: true,
-      trim: true
+      trim: true,
+      required: "Name is Required"
     },
     exercises: [
       {
         type: Number,
         ref: "workout",
-        trim: true
+        trim: true,
+        required: "Enter your exercise"
       }
       
-    ]
+    ],
+    weight: {
+      type: Number,
+    },
+    sets: {
+      type: Number,
+      
+    },
+    reps: {
+      type: Number,
+    },
+    duration: {
+      type: Number,
+    },
+
+
+
+
+
   });
   
-  const workout = mongoose.model("workout", WorkoutSchema);
+  const Workout = mongoose.model("Workout", WorkoutSchema);
   
-  module.exports = workout;
+  module.exports = Workout;
 
-  // const UserSchema = new Schema({
-  //   username: {
-  //     type: String,
-  //     trim: true,
-  //     required: "Username is Required"
-  //   },
-  
-  //   password: {
-  //     type: String,
-  //     trim: true,
-  //     required: "Password is Required",
-  //     validate: [({ length }) => length >= 6, "Password should be longer."]
-  //   },
-  
-  //   email: {
-  //     type: String,
-  //     unique: true,
-  //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-  //   },
-  
-  //   userCreated: {
-  //     type: Date,
-  //     default: Date.now
-  //   }
-  // });
   
