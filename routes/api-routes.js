@@ -1,12 +1,13 @@
-const db = require("./models/");
-const app = require("../server");
+const db = require("../models");
+// const app = require("../server");
 
 app.get("/api/workouts", async (req,res) => {
-    const workouts = await workouts.finOne({ })
-    console.log("get a work",req.body);
-
-    
-  });
+    const fitness = await db.workout.find({}).catch((err) => {
+        res.sendStatus(404).json(err)
+        console.log("find workouts")
+    });
+      res.json(fitness);
+    });
 
   app.get("/addExercise", (req,res) => {
     db.workout.find({addExercise: true}), async function (err, docs) {
