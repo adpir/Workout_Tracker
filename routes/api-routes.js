@@ -1,67 +1,66 @@
+// const WorkoutSchema = require("../models/WorkoutSchema.js");
 const db = require("../models");
 
 module.exports = (app) => {
-    app.get("/api/workouts", (req, res) => {
-        db.Workout.find({}, function (err, data) {
-          console.log(" find the book I read", err, data);
-          res.json(data);
-        })
-        .catch(err => {
-            res.status(400).json(err);
-          });
+
+  app.get("/api/workouts", (req, res) => {
+    db.Workout.find({}, function (err, data) {
+      console.log("Get a workout Done!!!", err, data);
+      res.json(data);
+    }).catch((err) => {
+      res.status(400).json(err);
+    });
+  });
+
+  app.put('/api/workouts/:id', (req, res) => {
+    db.Workout.findByIdAndUpdate({ _id: req.params.id }, {$push: { exercises: req.body } },
+     { new: true },
+    ).then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+             res.status(400).json(err);
+           });
       });
+ 
+  
 
-    app.put("/api/workouts/:id", (req, res) => {
-        const id  = req.params.id;
-        const body =req.body;
-        db.Workout.findByIdAndUpdate( id, {$push: {exercises : body }} ,
-        {new:true }
+  // app.put("/api/workouts/:id", (req, res) => {
+  //   const id = req.params.id;
+  //   const body = req.body;
+  //   console.log("Is this working??")
+  //   db.Workout.findByIdAndUpdate(
+  //     _id,
+   
+  //   )
+  //     .then((data) => {
+  //       res.json(data);
+  //     })
+  //     .catch((err) => {
+  //       res.status(400).json(err);
+  //     });
+  // });
 
-        ).then((data) => {
-            res.json(data);
-          })
-          .catch(err => {
-            res.status(400).json(err);
-          });
-        });
-     
-        app.post("/api/workouts",  (req, res) => {
-             db.Workout.create({}), function (err, data) {
-                console.log(" find the book I read", err, data);
-                res.json(data);
-              }
-              .catch(err => {
-                res.status(400).json(err);
-              });
-            });
 
-    app.post("api/workouts/range", (req, res) => {
-    db.Workout.find({}), function (err, data) {
-        console.log(" find the book I read", err, data);
+
+  app.post("/api/workouts", ({ body }, res) => {
+    db.Workout.create(body)
+      .then(data => {
         res.json(data);
-      }
+      })
       .catch(err => {
+        res.json(err);
+      });
+  });
+
+
+  app.get("api/workouts/range", (req, res) => {
+    db.Workout.find({}),
+      function (err, data) {
+        console.log(" new stast", req.body);
+        res.json(data);
+      }.catch((err) => {
         res.status(400).json(err);
       });
-    });
-
-
-
-
-
-
+  });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

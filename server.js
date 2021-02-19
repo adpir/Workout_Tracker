@@ -2,9 +2,11 @@ const express =require('express');
 const mongojs =require('mongojs');
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const path = require("path");
 
 
 const PORT = process.env.PORT || 3001;
+const host = process.env.HOST;
 
 const db = require("./models");
 
@@ -17,10 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
   useNewUrlParser:true,
   useFindAndModify: false,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology:false
 });
 
 
