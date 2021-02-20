@@ -3,6 +3,9 @@ const mongojs =require('mongojs');
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+const dotenv = require ("dotenv");
+dotenv.config();
+// const compressor = require ("compressor");
 
 
 const PORT = process.env.PORT || 3001;
@@ -20,10 +23,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
-  useNewUrlParser:true,
-  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
   useCreateIndex: true,
-  useUnifiedTopology:false
+  useFindAndModify: false
+
 });
 
 
@@ -34,6 +38,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker
 // db.on('error', (error) => {
 //     console.log('Database Error:', error);
 //   });
+
+
 //Routes
  require("./routes/api-routes")(app);
  require("./routes/html-routes")(app);

@@ -54,13 +54,19 @@ module.exports = (app) => {
   });
 
 
-  app.get("api/workouts/range", (req, res) => {
-    db.Workout.find({}),
-      function (err, data) {
-        console.log(" new stast", req.body);
-        res.json(data);
-      }.catch((err) => {
-        res.status(400).json(err);
+  
+  app.get("api/workouts/range",  (req, res) => {
+    db.Workout.find({})
+    .sort({ date : -1})
+    .then(dbWorkout => {
+    res.json(dbWorkout);
+    console.log("Dashboard appear")
+  })
+  .catch(err => {
+  res.status(400).json(err);
       });
+     
   });
+
+
 };

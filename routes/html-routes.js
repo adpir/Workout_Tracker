@@ -12,9 +12,9 @@ app.get("/",  (req, res) => {
   app.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
-  // stast route loads stast.html
+  // stats route loads stats.html
   app.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/stats.html"));
+    res.sendFile(path.join(__dirname,"../public/stats.html"));
 
   });
   
