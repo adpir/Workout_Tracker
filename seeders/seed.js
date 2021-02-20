@@ -1,7 +1,9 @@
 let mongoose = require("mongoose");
 let db = require("../models");
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost/workout-tracker", {
+
+mongoose.connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

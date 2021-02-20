@@ -12,7 +12,6 @@ const WorkoutSchema = new Schema ({
         type:  { 
         type: String,
         trim: true,
-        ref: "_id",
         required: "Enter the type of exercise you want to do",
       },
       name: {
