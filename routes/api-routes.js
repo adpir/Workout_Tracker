@@ -25,21 +25,6 @@ module.exports = (app) => {
  
   
 
-  // app.put("/api/workouts/:id", (req, res) => {
-  //   const id = req.params.id;
-  //   const body = req.body;
-  //   console.log("Is this working??")
-  //   db.Workout.findByIdAndUpdate(
-  //     _id,
-   
-  //   )
-  //     .then((data) => {
-  //       res.json(data);
-  //     })
-  //     .catch((err) => {
-  //       res.status(400).json(err);
-  //     });
-  // });
 
 
 
@@ -55,17 +40,25 @@ module.exports = (app) => {
 
 
   
-  app.get("api/workouts/range",  (req, res) => {
-    db.Workout.find({})
-    .sort({ date : -1})
-    .then(dbWorkout => {
-    res.json(dbWorkout);
-    console.log("Dashboard appear")
-  })
-  .catch(err => {
-  res.status(400).json(err);
-      });
+  // app.get("api/workouts/range",  (req, res) => {
+  //   db.Workout.find({})
+  //   .sort({ date : -1})
+  //   .then(dbWorkout => {
+  //   res.json(dbWorkout);
+  //   console.log("Dashboard appear")
+  // })
+  // .catch(err => {
+  // res.status(400).json(err);
+  //     });
      
+  // });
+  app.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({}, function (err, data) {
+      console.log("Get a workout Done!!!", err, data);
+      res.json(data);
+    }).catch((err) => {
+      res.status(400).json(err);
+    });
   });
 
 

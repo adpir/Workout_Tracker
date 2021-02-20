@@ -1,8 +1,6 @@
 const express =require('express');
-const mongojs =require('mongojs');
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const path = require("path");
 const dotenv = require ("dotenv");
 dotenv.config();
 // const compressor = require ("compressor");
@@ -22,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
+mongoose.connect("mongodb://localhost/workout-tracker", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -30,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker
 
 });
 
-
+// process.env.MONGODB_URI ||
 // const databaseURL="workout-tracker";
 // const collections =["workout"];
 
