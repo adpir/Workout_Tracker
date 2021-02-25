@@ -14,15 +14,19 @@ body,
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
+ 
 }
 
 nav {
-  background-color: #5793fd;
+  background-color: rgb(0, 180, 216);
   color: #ffffff;
   height: 80px;
   padding: 10px;
   line-height: 3;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
+  font-family: fantasy;
+  font-weight: bold;
 }
 
 a,
@@ -53,7 +57,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 6px;
   border: 1px solid #aaa;
   width: 100%;
@@ -70,20 +74,22 @@ select::-ms-expand {
 }
 
 select:hover {
-  border-color: #888;
+  border-color: rgba(26, 148, 219, 0.594);
 }
 
 select:focus {
-  border-color: #aaa;
+  border-color: rgb(22, 15, 236);
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222;
+  color: rgb(0, 0, 10);
   outline: none;
+  font-size: 1.5rem;
 }
 
 select option {
   font-weight: normal;
   width: 100%;
+  
 }
 
 input {
@@ -91,7 +97,7 @@ input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 6px;
   border: 1px solid #aaa;
   width: 100%;
@@ -100,14 +106,21 @@ input {
 }
 
 .wrapper {
-  background-color: #f2f8ff;
+  /* background-color: #f2f8ff; */
   padding-bottom: 100px;
+  background-image: url("fitness.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .card.m-auto,
 .m-auto {
   margin: 0 auto;
   width: 500px;
+  background-color:rgb(0, 180, 216);
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-weight: lighter;
 }
 
 form .workout-type,
@@ -115,6 +128,8 @@ form .cardio-form div,
 form .resistance-form div {
   display: flex;
   margin-top: 30px;
+  background-color: #566b81;
+  opacity: 10;
 }
 
 form label {
@@ -140,6 +155,7 @@ form::after {
 .exercise .ui.card {
   width: 400px;
   max-width: 600px;
+color: rgba(227, 255, 255, 0.895);
 }
 
 .exercise .buttons {
@@ -183,7 +199,7 @@ button {
   opacity: 1;
   right: 10px;
   background-color: hsl(94, 40%, 86%);
-  color: hsl(94, 90%, 16%);
+  color: #566b81;
   transition: all 1.2s;
 }
 
@@ -245,7 +261,7 @@ button {
 #toast.success {
   right: 10px;
   background-color: hsl(94, 40%, 86%);
-  color: hsl(94, 90%, 16%);
+  color: #566b81;
   transition: all 0.5s;
 }
 .workout-type,
@@ -303,7 +319,7 @@ button {
 
 #toast.success {
   background-color: hsl(94, 40%, 86%);
-  color: hsl(94, 90%, 16%);
+  color: #566b81;
   animation-name: toast;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -323,7 +339,8 @@ button {
   border-radius: 6px;
   border: 1px solid #aaa;
   padding: 10px;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background: linear-gradient(to bottom, #628156 0%, #e5e5e5 100%);
+  color:566b81;
 }
 
 form > button {
@@ -411,6 +428,10 @@ form > button {
   padding: 10px;
 }
 
+h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 2.5rem;
+}
 .buttons .ui.button:first-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
