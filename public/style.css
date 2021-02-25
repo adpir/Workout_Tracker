@@ -13,10 +13,19 @@ body,
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(217, 232, 237, 0.443);
+
   
  
 }
+.container {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 3rem;
+  color: rgb(216, 240, 241); 
+   font-weight: bolder;
+
+}
+
 
 nav {
   background-color: rgb(0, 180, 216);
@@ -51,6 +60,9 @@ header {
 header h1 {
   transform: skewX(-2deg);
 }
+/* h1 {
+  
+} */
 
 select {
   display: block;
@@ -155,16 +167,20 @@ form::after {
 .exercise .ui.card {
   width: 400px;
   max-width: 600px;
-color: rgba(227, 255, 255, 0.895);
+color: rgb(227, 255, 255, 0.895);
 }
 
 .exercise .buttons {
   margin-top: 20px;
   display: flex;
+
 }
 
 .exercise .buttons button {
   width: 100%;
+  background-color:rgb(0, 119, 182);
+  color:rgba(239, 244, 244, 0.895);
+  
 }
 
 button {
@@ -176,6 +192,7 @@ button {
   border: 1px solid #aaa;
   padding: 10px;
   background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+
 }
 
 #toast {
@@ -198,8 +215,8 @@ button {
 #toast.success {
   opacity: 1;
   right: 10px;
-  background-color: hsl(94, 40%, 86%);
-  color: #566b81;
+  background-color: #566b81;
+  color: #002144;
   transition: all 1.2s;
 }
 
@@ -260,8 +277,8 @@ button {
 
 #toast.success {
   right: 10px;
-  background-color: hsl(94, 40%, 86%);
-  color: #566b81;
+  background-color: #566b81;
+  color: hsl(188, 98%, 44%);
   transition: all 0.5s;
 }
 .workout-type,
@@ -318,8 +335,8 @@ button {
 }
 
 #toast.success {
-  background-color: hsl(94, 40%, 86%);
-  color: #566b81;
+  background-color: #566b81;
+  color: hsl(188, 98%, 44%);
   animation-name: toast;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -339,10 +356,13 @@ button {
   border-radius: 6px;
   border: 1px solid #aaa;
   padding: 10px;
-  background: linear-gradient(to bottom, #628156 0%, #e5e5e5 100%);
-  color:566b81;
+   background: linear-gradient(to bottom, #628156 0%, #e5e5e5 100%);
+ 
 }
-
+.ui.button{
+  background-color:rgb(0, 119, 182);
+  color:rgb(227, 255, 255, 0.895);
+}
 form > button {
   margin: 5px;
   margin-top: 20px;
@@ -375,15 +395,19 @@ form > button {
 }
 
 #toast.success {
-  background-color: hsl(94, 40%, 86%);
-  color: hsl(94, 90%, 16%);
+  background-color: #566b81;
+  color: hsl(188, 98%, 44%);
 }
 
 .prev-workout h3 {
   font-size: 2rem;
   width: 100%;
 }
-
+h3 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular';
+  font-size: 2.6rem;
+  color: rgb(227, 231, 234);
+}
 .prev-workout p {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -422,6 +446,7 @@ form > button {
 .buttons .ui.button {
   margin: 0;
   width: 50%;
+  
 }
 
 .ui.card h2 {
