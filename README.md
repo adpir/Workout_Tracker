@@ -1,6 +1,6 @@
 
 
-<h1 align= "center">Fitness Tracker <h1>
+<h1 align= "center"> :runner: Fitness Tracker :runner: <h1>
 
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -37,7 +37,7 @@ To deploy an application with a MongoDB database to `Heroku`, you'll need to set
 
 - Deploy with Heroku and MongoDB Atlas
 
-### Usage:
+### :exclamation: Usage:
 
 `node server.js`
 
