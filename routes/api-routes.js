@@ -44,4 +44,12 @@ module.exports = (app) => {
       res.status(400).json(err);
     });
   });
+  app.get("/api/favicon", (req, res) => {
+    db.Workout.find({}, function (err, data) {
+      console.log("Favicon!!!", err, data);
+      res.json(data);
+    }).catch((err) => {
+      res.status(400).json(err);
+    });
+  });
 };
